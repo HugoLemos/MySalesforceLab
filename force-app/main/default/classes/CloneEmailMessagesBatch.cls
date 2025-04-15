@@ -50,8 +50,8 @@ public class CloneEmailMessagesBatch implements Database.Batchable<sObject>, Dat
                     
                     // Compress the content
                     Compression.ZipWriter writer = new Compression.ZipWriter();
-                    writer.addEntry('htmlBody_' + newEmailMessage.Id + '.html', Blob.valueOf(originalEmailMessage.HtmlBody != null ? originalEmailMessage.HtmlBody : ''));
-                    writer.addEntry('textBody_' + newEmailMessage.Id + '.txt', Blob.valueOf(originalEmailMessage.TextBody != null ? originalEmailMessage.TextBody : '') );
+                    writer.addEntry('htmlBody.html', Blob.valueOf(originalEmailMessage.HtmlBody != null ? originalEmailMessage.HtmlBody : ''));
+                    writer.addEntry('textBody.txt', Blob.valueOf(originalEmailMessage.TextBody != null ? originalEmailMessage.TextBody : '') );
                     blob zipAttachment = writer.getArchive();
                     
                     // add compressed content as a file
