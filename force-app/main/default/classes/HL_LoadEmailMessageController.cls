@@ -16,11 +16,11 @@ public with sharing class HL_LoadEmailMessageController {
             ];
 
             Compression.ZipReader reader = new Compression.ZipReader(content.VersionData);
-            message.htmlBody = reader.extract('htmlBody.html').toString();
-            message.textBody = reader.extract('textBody.html').toString();
+            message.htmlBody = reader.extract('htmlBody.html')?.toString();
+            message.textBody = reader.extract('textBody.txt')?.toString();
 
         } catch (Exception e) {
-            throw new AuraHandledException('Error retrieving attachment: ' + e.getMessage());
+            throw new AuraHandledException('Error retrieving zip entry: ' + e.getMessage());
         }
 
         return message;
