@@ -6,7 +6,6 @@ public with sharing class HL_LoadEmailMessageController {
         EmailMessageContent message = new EmailMessageContent();
 
         try {
-            // Query the most recent Attachment related to the record
             ContentVersion content = [
                 SELECT VersionData
                 FROM ContentVersion

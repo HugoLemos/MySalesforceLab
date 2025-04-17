@@ -1,0 +1,9 @@
+<aura:component controller="HL_LoadEmailMessageController" implements="force:hasRecordId,force:lightningQuickAction" access="global" >
+
+    <aura:attribute name="messageContent" type="HL_LoadEmailMessageController.EmailMessageContent" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <ui:outputRichText class="slds-text-longform" value="{!v.messageContent.htmlBody}"/>
+
+</aura:component>
